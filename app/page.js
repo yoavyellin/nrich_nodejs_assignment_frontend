@@ -48,7 +48,7 @@ export default function Home() {
         if (res.ok) {
             setDepsTree(data.data);
         } else {
-            throw new Error(`Response status: ${res.status}. ${data.error}`);
+            throw new Error(`Status ${res.status}. ${data.error}`);
         }
     }
 
