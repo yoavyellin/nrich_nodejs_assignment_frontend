@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Form from "./components/Form";
 import toast from "react-hot-toast";
-import TreeVisualization from "./components/TreeVisualization";
 import { useRouter } from "next/navigation";
+import DepsGraph from "./components/DepsGraph";
 
 export default function Home() {
-    const [depsTree, setDepsTree] = useState(null);
+    const [depsGraph, setDepsGraph] = useState(null);
 
     const router = useRouter();
 
@@ -22,7 +22,7 @@ export default function Home() {
             {
                 loading: "Loading...",
                 success: () => {
-                    router.push("#treeWrapper");
+                    router.push("#graphWrapper");
                     return "Got the data!";
                 },
                 error: (err) => err.toString(),
@@ -46,17 +46,17 @@ export default function Home() {
         const data = await res.json();
 
         if (res.ok) {
-            setDepsTree(data.data);
+            setDepsGraph(data.data);
         } else {
             throw new Error(`Status ${res.status}. ${data.error}`);
         }
     }
 
     return (
-        <main className="min-h-full flex flex-col gap-y-12 pt-24 pb-12 px-16">
+        <main className="min-h-full flex flex-col gap-y-12 pt-24 pb-12 px-4">
             <Form onSubmit={onSubmit} />
 
-            {depsTree && <TreeVisualization depsTree={depsTree} />}
+            {depsGraph && <DepsGraph depsGraph={depsGraph} />}
         </main>
     );
 }

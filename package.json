@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@antv/g6": "^4.8.24",
     "@heroicons/react": "^2.1.1",
     "@tailwindcss/forms": "^0.5.7",
     "next": "14.0.4",
     "react": "^18",
     "react-d3-tree": "^3.6.2",
     "react-dom": "^18",
-    "react-hot-toast": "^2.4.1"
+    "react-graph-vis": "^1.0.7",
+    "react-hot-toast": "^2.4.1",
+    "react-uid": "^2.3.3",
+    "reactflow": "^11.10.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
